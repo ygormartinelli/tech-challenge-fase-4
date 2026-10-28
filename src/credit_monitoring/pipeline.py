@@ -145,6 +145,13 @@ def run(root, config):
                     )
                     result.update(status="success", accepted_rows=len(batch), drift=drift)
                     result["alerts"] = len(drift["drifted_features"])
+                    mlflow.log_metrics(
+                        {
+                            "drifted_features_count": result["alerts"],
+                            "drifted_features_share": result["alerts"] / len(FEATURES),
+                            **{f"psi_{row['feature']}": row["psi"] for row in drift["features"]},
+                        }
+                    )
                     if "target" in metadata:
                         metrics = evaluate(
                             metadata["target"], probability, config["decision_threshold"]

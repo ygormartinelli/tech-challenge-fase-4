@@ -10,7 +10,14 @@ from credit_monitoring.data import FEATURES, write_json
 def detect(reference, current, config, output):
     output.mkdir(parents=True, exist_ok=True)
     snapshot = Report(
-        [DataDriftPreset(columns=FEATURES, method="psi", threshold=config["psi_threshold"])]
+        [
+            DataDriftPreset(
+                columns=FEATURES,
+                method="psi",
+                threshold=config["psi_threshold"],
+                drift_share=1 / len(FEATURES),
+            )
+        ]
     ).run(current_data=current[FEATURES], reference_data=reference[FEATURES])
     snapshot.save_html(str(output / "evidently.html"))
     raw = snapshot.dict()
@@ -38,6 +45,7 @@ def detect(reference, current, config, output):
         "current_rows": len(current),
         "method": "Evidently PSI",
         "threshold": config["psi_threshold"],
+        "dataset_drift_share_threshold": 1 / len(FEATURES),
         "ks_family_alpha": config["ks_alpha"],
         "ks_comparisons": len(FEATURES),
         "features": rows,
