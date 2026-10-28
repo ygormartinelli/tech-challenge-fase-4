@@ -132,4 +132,4 @@ Responsável acadêmico: Ygor. Finalidade: demonstrar confiabilidade com base p�
 - `docs/`: decisões, aceite, operação e preparação da entrega.
 - `data/`, `models/`, `logs/`, `mlartifacts/`: dados e artefatos locais ignorados.
 
-Commits semânticos, incluindo WIP e correções verificadas, preservam o desenvolvimento. A CI testa lint, formatação, contratos, separação e relatório Evidently com fixtures artificiais pequenas, em Windows e Linux. Ela não apresenta essas fixtures como base acadêmica. A reprodução com a base real é validada separadamente e documentada. O vídeo permanece pendente; o link será destacado no início deste README quando disponível.
+Commits semânticos, incluindo WIP e correções verificadas, preservam o desenvolvimento. A CI testa lint, formatação, contratos, separação e relatório Evidently com fixtures artificiais pequenas, em Windows e Linux. Ela não apresenta essas fixtures como base acadêmica. A reprodução com a base real é validada separadamente e documentada. O vídeo foi incluído no início do readme.
