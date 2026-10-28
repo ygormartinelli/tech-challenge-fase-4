@@ -25,7 +25,7 @@ O baseline obteve ROC-AUC **0,766**, PR-AUC **0,525**, precision **0,673** e rec
 Pré-requisitos: Git e [uv](https://docs.astral.sh/uv/getting-started/installation/), com acesso à internet na primeira instalação e aquisição. Python 3.12; dependências de produção e desenvolvimento separadas no `pyproject.toml`, versões exatas no `uv.lock`.
 
 ```sh
-git clone --branch chore/project-scaffold https://github.com/ygormartinelli/tech-challenge-fase-4.git
+git clone --branch main https://github.com/ygormartinelli/tech-challenge-fase-4.git
 cd tech-challenge-fase-4
 uv sync --locked
 uv run credit-monitor run
