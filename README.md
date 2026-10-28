@@ -1,5 +1,7 @@
 # Tech Challenge — Fase 4
 
+VIDEO: https://youtu.be/2Qi1QR0RzCc
+
 Observabilidade contínua, qualidade de dados, data/concept drift e governança de um modelo de risco de crédito.
 
 **Situação:** implementação técnica executada com dados reais e cenários simulados. Vídeo STAR e submissão por Ygor ainda pendentes. Trabalho individual; prazo 11/11/2026, meta interna de entrega 09/11.
