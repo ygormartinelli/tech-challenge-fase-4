@@ -16,16 +16,16 @@ def scenarios(production, reference, config):
     for name, intensity in [("drift_moderate", 0.5), ("drift_severe", 1.0)]:
         batch = features.copy()
         credit_factor = 1 + intensity * (config["drift_limit_multiplier"] - 1)
-        payment_factor = 1 + intensity * (config["drift_payment_multiplier"] - 1)
+        status_increment = max(1, round(intensity * config["drift_status_increment"]))
         batch["limit_bal"] = (batch.limit_bal * credit_factor).round().astype("int64")
-        batch["pay_amt_1"] = (batch.pay_amt_1 * payment_factor).round().astype("int64")
+        batch["pay_0"] = (batch.pay_0 + status_increment).clip(upper=9).astype("int64")
         yield (
             name,
             batch,
             {
                 "kind": "covariate_shift",
                 "credit_factor": credit_factor,
-                "payment_factor": payment_factor,
+                "status_increment": status_increment,
                 "target_note": "Sem alvo contrafactual observado; acurácia não avaliada.",
             },
         )

@@ -12,11 +12,25 @@ Fonte consultada em 28/10/2026. Atribuição: Yeh, I. (2009). Default of Credit 
 
 São dados históricos de Taiwan, com histórico mensal de 2005; não representam automaticamente o crédito brasileiro atual. O alvo é inadimplência de cartão, não uma decisão de aprovação de empréstimo. O cenário acadêmico deverá declarar essa aproximação. Limite de crédito não é renda, e a base não fornece desemprego para a simulação sugerida como exemplo no enunciado.
 
-Não há validação local ainda. A quantidade informada pelo catálogo deve ser conferida após leitura e tratamento, sem replicar linhas para satisfazer o mínimo de 5.000 amostras. A licença da base não define a licença do código do projeto.
+Auditoria local concluída em 28/10/2026: 30.000 registros, 25 colunas, nenhum nulo e 30.000 IDs únicos. Há 35 duplicatas exatas ignorando ID. Para impedir sobreposição de perfis usados pelo modelo, excluímos todos os 951 registros pertencentes a perfis financeiros repetidos (19 features), inclusive os membros originais. Restaram 29.049 observações: 17.429 de referência, 5.810 de validação e 5.810 de produção. A exclusão é conservadora e altera a população: prevalência de inadimplência passa de 22,12% para aproximadamente 21,54%. Essa limitação não deve ser omitida. A licença da base não define a licença do código.
+
+As evidências agregadas estão em [audit.json](../reports/evidence/audit.json). O relatório inclui checksums, estatísticas, contagens, categorias, correlações exploratórias e manifesto das partições. Nenhuma linha individual é publicada.
+
+## Conclusões da EDA que orientaram decisões
+
+- Idades observadas: 21–79 anos. O contrato aceita 18–120 como domínio documentado do cenário adulto, não como inferência de qualidade baseada em quantis.
+- Faturas negativas ocorrem em todos os meses (590–688 registros por coluna); preservá-las. Valores de pagamento e limite têm regras de domínio próprias.
+- Educação inclui 0, 5 e 6; estado civil inclui 0. Preservar essas categorias como códigos de origem, sem inventar significados. Esses atributos não entram no modelo.
+- Status de pagamento inclui -2 e 0, além das categorias descritas no catálogo. Preservar códigos e tratá-los categoricamente; uma simulação que soma atrasos é uma intervenção numérica simplificada, não uma transição econômica validada.
+- Modelo: 19 features financeiras. ID, alvo, sexo, idade, escolaridade e estado civil excluídos das entradas. Sexo e idade usados somente em avaliação agregada de grupos.
+- Dinheiro tem forte assimetria e outliers: transformação signed-log seguida de padronização; ajuste somente no treino.
+- Desbalanceamento exige PR-AUC, recall e comparação ingênua, além de ROC-AUC. O limiar 0,5 é fixo para a demonstração, não uma política ótima de crédito.
+- `pay_0` e `limit_bal` foram escolhidas para as intervenções. A primeira tentativa com `pay_amt_1` não acionou PSI ≥0,2, ilustrando a sensibilidade à discretização e caudas. O commit WIP preserva essa tentativa; o limiar não foi reduzido para fabricar um alerta.
+- A base é aceita exclusivamente para a demonstração acadêmica, sem validação externa brasileira ou evidência de causalidade econômica real.
 
 ## Aquisição futura
 
-Na T01, obter o arquivo pelo botão de download da página oficial ou pelo cliente UCI, registrar data, URL, checksum, formato e dicionário. Manter o arquivo em `data/raw/`, ignorado pelo Git. Essa fonte tem acesso público; Ygor não precisa fornecer um arquivo ou credenciais neste momento.
+`uv run credit-monitor audit` baixa o ZIP oficial, preserva-o em `data/raw/`, registra data/URL/checksum, lê o XLS e gera partições e relatório. Em reexecuções, confere o checksum registrado. Essa fonte tem acesso público; Ygor não precisa fornecer arquivo ou credenciais.
 
 ## Critérios para aceitar a base
 
