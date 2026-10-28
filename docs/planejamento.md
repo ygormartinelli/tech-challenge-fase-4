@@ -1,6 +1,6 @@
 # Plano de atividades
 
-Planejamento inicial de 28/10/2026. A estrutura foi criada; a execução das atividades abaixo permanece pendente. Prazo de entrega e disponibilidade da equipe ainda não informados; a ordem é por dependências, sem datas inventadas.
+Planejamento inicial de 28/10/2026. Execução individual por Ygor, com prazo em 11/11/2026 e meta interna proposta de entrega em 09/11. Consulte o [cronograma](cronograma.md). A implementação foi autorizada; checklists só serão concluídos com evidências.
 
 Fluxo: T01 → T02 → T03 → T04 → T05 → T06/T07 → T08 → T09 → T10 → T11. T06 e T07 podem avançar após T05. T09 pode ser preparada desde T01, mas só concluída após os resultados. T10 inclui integração de todas as etapas. A numeração estável permite vincular issues e commits.
 
