@@ -9,7 +9,7 @@ from credit_monitoring.data import audit
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["audit", "train"])
+    parser.add_argument("command", choices=["audit", "train", "run"])
     parser.add_argument("--root", type=Path, default=Path.cwd())
     args = parser.parse_args()
     root = args.root.resolve()
@@ -19,11 +19,27 @@ def main():
         print(
             json.dumps({k: result[k] for k in ["rows_raw", "rows_usable", "partitions"]}, indent=2)
         )
-    else:
+    elif args.command == "train":
         from credit_monitoring.model import train
 
         _, report = train(root, config)
         print(json.dumps(report["model"], indent=2))
+    else:
+        from credit_monitoring.pipeline import run
+
+        report = run(root, config)
+        print(
+            json.dumps(
+                {
+                    "execution_id": report["execution_id"],
+                    "scenarios": [
+                        {k: row[k] for k in ["scenario", "status", "alerts"]}
+                        for row in report["results"]
+                    ],
+                },
+                indent=2,
+            )
+        )
 
 
 if __name__ == "__main__":

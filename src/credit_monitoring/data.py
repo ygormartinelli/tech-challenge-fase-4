@@ -149,7 +149,8 @@ def audit(root: Path, config: dict) -> dict:
     write_json(output / "audit.json", summary)
     table = frame.drop(columns="id").describe().round(2).T.to_html()
     html = '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Auditoria UCI</title>'
-    html += "<style>body{font:16px system-ui;max-width:1200px;margin:40px auto}td,th{padding:8px}</style>"
+    html += "<style>body{font:16px system-ui;max-width:1200px;margin:40px auto}"
+    html += "td,th{padding:8px}</style>"
     html += f"<h1>Auditoria da base UCI</h1><p>{len(frame):,} registros originais; "
     html += f"{summary['rows_usable']:,} após exclusão conservadora de perfis repetidos.</p>"
     html += "<p>Dados históricos de Taiwan. Partições por cliente, sem cronologia real. "
