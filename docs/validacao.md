@@ -1,5 +1,13 @@
 # Evidências e limites da validação
 
+## Confirmação do fluxo válido
+
+Nova execução completa em 28/10/2026 com `uv run credit-monitor run`, no commit `c1c0393e0a888ce299d8100f4c885cddb1807867`, árvore limpa. Execução **54c176366b40**, run de controle **01844b2da8dc43c9b77eae15b04fb32c**. O [JSON integral](../reports/evidence/confirmation-54c176366b40.json) preserva as métricas dessa execução, sem substituir a reprodução independente abaixo.
+
+O controle recebeu e aceitou **5.810 registros**, produziu **5.810 predições** e rejeitou **zero** registros. Ingestão, validação, transformação, inferência e drift terminaram com `success`. A ROC-AUC foi **0,7713085508780955**, sem alertas de drift. O [print real do MLflow](../reports/evidence/mlflow-control.jpg) mostra `control`, `Finished`, `inference_success=1` e `inference_input_rows=5810`.
+
+O simulador cria uma cópia separada denominada `invalid` e injeta idade de 12 anos, limite −1 e ID duplicado. As violações `in_range(18, 120)`, `greater_than(0)` e `field_uniqueness` rejeitam integralmente apenas essa cópia. Esse teste negativo não significa que o modelo deixou de funcionar. O controle e os cenários de drift concluem a inferência normalmente. Não foi necessário alterar código, regras ou dados para obter sucesso no controle.
+
 ## Execução reproduzida
 
 Em 28/10/2026, o pipeline foi executado em uma cópia Git separada, com `.venv` novo e novo download da fonte pública. Comandos: `uv sync --locked`, `uv run pytest -q` e `uv run credit-monitor run`. A configuração é a padrão do repositório. A reprodução inicial usou `0b5d5b8`; após a correção de política/telemetria, a cópia foi atualizada por fast-forward e reexecutada.

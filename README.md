@@ -13,6 +13,10 @@ Observabilidade contínua, qualidade de dados, data/concept drift e governança 
 | Drift moderado/severo | Mudanças detectadas em `limit_bal` e `pay_0`; dois alertas por lote |
 | Concept drift sintético | Mesmos X do controle, rótulos modificados; ROC-AUC 0,771 → 0,491; alerta de desempenho |
 
+**Funcionamento confirmado novamente em 28/10/2026:** o lote válido concluiu **5.810 predições**, com **zero rejeições**, zero alertas de drift e ROC-AUC **0,771309**. Veja o [print real do MLflow](reports/evidence/mlflow-control.jpg), o [resumo da execução 54c176366b40](reports/evidence/confirmation-54c176366b40.json) e a [apresentação atualizada](docs/apresentacao/Tech_Challenge_Fase4_STAR.pptx).
+
+O cenário `invalid` é um teste separado: em uma cópia, o simulador insere idade de 12 anos, limite de crédito −1 e ID duplicado. A política rejeita esse lote inteiro antes da predição. Esses erros não estão no lote de controle e não indicam falha do modelo. Os outros quatro cenários concluem 5.810 predições cada, reutilizando os mesmos clientes em experimentos distintos.
+
 O baseline obteve ROC-AUC **0,766**, PR-AUC **0,525**, precision **0,673** e recall **0,364** na validação independente, com limiar 0,5. O baseline ingênuo obteve ROC-AUC 0,5 e PR-AUC 0,215. O recall baixo limita o uso: este projeto demonstra sustentação e diagnóstico, sem validar decisões reais de concessão.
 
 - [Evidências de execução e reprodução](docs/validacao.md)

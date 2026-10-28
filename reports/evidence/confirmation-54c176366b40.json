@@ -1,0 +1,1095 @@
+{
+  "execution_id": "54c176366b40",
+  "run_id": "d3d61cacb0dc42c7958fdce2695e6745",
+  "git_commit": "c1c0393e0a888ce299d8100f4c885cddb1807867",
+  "working_tree_dirty": false,
+  "versions": {
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "evidently": "0.7.23",
+    "pandera": "0.35.0",
+    "mlflow": "3.17.2"
+  },
+  "config": {
+    "seed": 42,
+    "source_url": "https://archive.ics.uci.edu/static/public/350/default%2Bof%2Bcredit%2Bcard%2Bclients.zip",
+    "validation_fraction": 0.2,
+    "production_fraction": 0.2,
+    "decision_threshold": 0.5,
+    "psi_threshold": 0.2,
+    "ks_alpha": 0.05,
+    "max_iter": 3000,
+    "drift_limit_multiplier": 2.5,
+    "drift_status_increment": 3,
+    "concept_flip_probability": 0.8,
+    "performance_drop_threshold": 0.1
+  },
+  "config_sha256": "1ee0144e3b8eca2216a8bf70eb513a48cead2861309aa3cd9033584a46b526c7",
+  "model_sha256": "7efa7a392ee251e4c8d2dd2761479004c2e7607bd6e6eb63ed62dc6884bf4835",
+  "results": [
+    {
+      "scenario": "control",
+      "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+      "received_rows": 5810,
+      "accepted_rows": 5810,
+      "rejected_rows": 0,
+      "alerts": 0,
+      "metadata": {
+        "kind": "observed"
+      },
+      "status": "success",
+      "drift": {
+        "reference_rows": 17429,
+        "current_rows": 5810,
+        "method": "Evidently PSI",
+        "threshold": 0.2,
+        "dataset_drift_share_threshold": 0.05263157894736842,
+        "ks_family_alpha": 0.05,
+        "ks_comparisons": 19,
+        "features": [
+          {
+            "feature": "limit_bal",
+            "psi": 0.007408997614078617,
+            "drift": false,
+            "ks_statistic": 0.0075689033520705,
+            "ks_pvalue": 0.9625863024470263,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_0",
+            "psi": 0.0008833696768103748,
+            "drift": false,
+            "ks_statistic": 0.004118583297724521,
+            "ks_pvalue": 0.9999993063367137,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_2",
+            "psi": 0.0025123740266736697,
+            "drift": false,
+            "ks_statistic": 0.008138363968731133,
+            "ks_pvalue": 0.9327909191681363,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_3",
+            "psi": 0.002221674130496438,
+            "drift": false,
+            "ks_statistic": 0.011148323530262738,
+            "ks_pvalue": 0.6467492751473892,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_4",
+            "psi": 0.0026403615093893535,
+            "drift": false,
+            "ks_statistic": 0.01097619661535082,
+            "ks_pvalue": 0.6659120283409256,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_5",
+            "psi": 0.0020924999649891214,
+            "drift": false,
+            "ks_statistic": 0.006534769192422463,
+            "ks_pvalue": 0.9917769974943101,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_6",
+            "psi": 0.001817450422643392,
+            "drift": false,
+            "ks_statistic": 0.007223089220895096,
+            "ks_pvalue": 0.9756801002166264,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_1",
+            "psi": 0.005525106823507991,
+            "drift": false,
+            "ks_statistic": 0.0063026003014541865,
+            "ks_pvalue": 0.9947720616817768,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_2",
+            "psi": 0.0047583986062478874,
+            "drift": false,
+            "ks_statistic": 0.009442045124507636,
+            "ks_pvalue": 0.8284663345790042,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_3",
+            "psi": 0.011486769234453062,
+            "drift": false,
+            "ks_statistic": 0.006163614977273413,
+            "ks_pvalue": 0.9961159341249198,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_4",
+            "psi": 0.008224406252169978,
+            "drift": false,
+            "ks_statistic": 0.010362218033548198,
+            "ks_pvalue": 0.7335921070690703,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_5",
+            "psi": 0.00821051314317319,
+            "drift": false,
+            "ks_statistic": 0.012764064956332755,
+            "ks_pvalue": 0.47288869650323984,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_6",
+            "psi": 0.009244829457254664,
+            "drift": false,
+            "ks_statistic": 0.010828096366186535,
+            "ks_pvalue": 0.6823721603328554,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_1",
+            "psi": 0.009601985305145376,
+            "drift": false,
+            "ks_statistic": 0.014827632620924125,
+            "ks_pvalue": 0.29063654714958576,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_2",
+            "psi": 0.0162146070795579,
+            "drift": false,
+            "ks_statistic": 0.014267336305872014,
+            "ks_pvalue": 0.33457154547504664,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_3",
+            "psi": 0.0006528242725160666,
+            "drift": false,
+            "ks_statistic": 0.009598796158380107,
+            "ks_pvalue": 0.8131978697390634,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_4",
+            "psi": 0.014548626495282326,
+            "drift": false,
+            "ks_statistic": 0.009505484212367299,
+            "ks_pvalue": 0.8223418988735139,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_5",
+            "psi": 0.0059844392764953494,
+            "drift": false,
+            "ks_statistic": 0.011901702199896502,
+            "ks_pvalue": 0.5635991691643123,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_6",
+            "psi": 0.005145669710774407,
+            "drift": false,
+            "ks_statistic": 0.013114955004562945,
+            "ks_pvalue": 0.4380990261636347,
+            "ks_significant_bonferroni": false
+          }
+        ],
+        "drifted_features": [],
+        "interpretation": "Alerta por feature via PSI; KS complementar. KS em variáveis discretas exige cautela. Nenhum teste prova causalidade."
+      },
+      "performance": {
+        "rows": 5810,
+        "positive_rate": 0.2153184165232358,
+        "roc_auc": 0.7713085508780955,
+        "pr_auc": 0.5346935158785415,
+        "precision": 0.664714494875549,
+        "recall": 0.36290967226219023,
+        "brier": 0.1337250853556391,
+        "confusion_matrix": [
+          [
+            4330,
+            229
+          ],
+          [
+            797,
+            454
+          ]
+        ]
+      },
+      "prediction_count": 5810,
+      "stages": [
+        {
+          "time_utc": "2026-10-28T18:08:24.833611+00:00",
+          "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+          "batch_id": "control",
+          "stage": "ingestion",
+          "status": "success",
+          "seconds": 0.0002770000000964501,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 419.41796875
+        },
+        {
+          "time_utc": "2026-10-28T18:08:24.857614+00:00",
+          "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+          "batch_id": "control",
+          "stage": "validation",
+          "status": "success",
+          "seconds": 0.010140800000044692,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 420.19140625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:24.880616+00:00",
+          "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+          "batch_id": "control",
+          "stage": "transformation",
+          "status": "success",
+          "seconds": 0.011077600000135135,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 422.59375
+        },
+        {
+          "time_utc": "2026-10-28T18:08:24.892613+00:00",
+          "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+          "batch_id": "control",
+          "stage": "inference",
+          "status": "success",
+          "seconds": 0.0006523000001834589,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 422.5859375
+        },
+        {
+          "time_utc": "2026-10-28T18:08:29.166142+00:00",
+          "run_id": "01844b2da8dc43c9b77eae15b04fb32c",
+          "batch_id": "control",
+          "stage": "drift",
+          "status": "success",
+          "seconds": 4.263497400000233,
+          "input_rows": 5810,
+          "cpu_seconds": 2.171875,
+          "rss_mb": 408.68359375
+        }
+      ]
+    },
+    {
+      "scenario": "invalid",
+      "run_id": "9b110449cb3949139349b795e81a0f90",
+      "received_rows": 5810,
+      "accepted_rows": 0,
+      "rejected_rows": 5810,
+      "alerts": 1,
+      "metadata": {
+        "kind": "contract_violation"
+      },
+      "status": "rejected",
+      "rules": [
+        "field_uniqueness",
+        "greater_than(0)",
+        "in_range(18, 120)"
+      ],
+      "prediction_count": 0,
+      "stages": [
+        {
+          "time_utc": "2026-10-28T18:08:29.291941+00:00",
+          "run_id": "9b110449cb3949139349b795e81a0f90",
+          "batch_id": "invalid",
+          "stage": "ingestion",
+          "status": "success",
+          "seconds": 0.00028079999992769444,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 409.75390625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:29.327943+00:00",
+          "run_id": "9b110449cb3949139349b795e81a0f90",
+          "batch_id": "invalid",
+          "stage": "validation",
+          "status": "failed",
+          "seconds": 0.025121100000433216,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 409.8125
+        }
+      ]
+    },
+    {
+      "scenario": "drift_moderate",
+      "run_id": "20f862b7497f499386855565b1cc065d",
+      "received_rows": 5810,
+      "accepted_rows": 5810,
+      "rejected_rows": 0,
+      "alerts": 2,
+      "metadata": {
+        "kind": "covariate_shift",
+        "credit_factor": 1.75,
+        "status_increment": 2,
+        "target_note": "Sem alvo contrafactual observado; acurácia não avaliada."
+      },
+      "status": "success",
+      "drift": {
+        "reference_rows": 17429,
+        "current_rows": 5810,
+        "method": "Evidently PSI",
+        "threshold": 0.2,
+        "dataset_drift_share_threshold": 0.05263157894736842,
+        "ks_family_alpha": 0.05,
+        "ks_comparisons": 19,
+        "features": [
+          {
+            "feature": "limit_bal",
+            "psi": 1.3443100859671107,
+            "drift": true,
+            "ks_statistic": 0.2803668860996802,
+            "ks_pvalue": 2.1302847288460855e-303,
+            "ks_significant_bonferroni": true
+          },
+          {
+            "feature": "pay_0",
+            "psi": 4.1089788307798205,
+            "drift": true,
+            "ks_statistic": 0.701192593624747,
+            "ks_pvalue": 0.0,
+            "ks_significant_bonferroni": true
+          },
+          {
+            "feature": "pay_2",
+            "psi": 0.0025123740266736697,
+            "drift": false,
+            "ks_statistic": 0.008138363968731133,
+            "ks_pvalue": 0.9327909191681363,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_3",
+            "psi": 0.002221674130496438,
+            "drift": false,
+            "ks_statistic": 0.011148323530262738,
+            "ks_pvalue": 0.6467492751473892,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_4",
+            "psi": 0.0026403615093893535,
+            "drift": false,
+            "ks_statistic": 0.01097619661535082,
+            "ks_pvalue": 0.6659120283409256,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_5",
+            "psi": 0.0020924999649891214,
+            "drift": false,
+            "ks_statistic": 0.006534769192422463,
+            "ks_pvalue": 0.9917769974943101,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_6",
+            "psi": 0.001817450422643392,
+            "drift": false,
+            "ks_statistic": 0.007223089220895096,
+            "ks_pvalue": 0.9756801002166264,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_1",
+            "psi": 0.005525106823507991,
+            "drift": false,
+            "ks_statistic": 0.0063026003014541865,
+            "ks_pvalue": 0.9947720616817768,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_2",
+            "psi": 0.0047583986062478874,
+            "drift": false,
+            "ks_statistic": 0.009442045124507636,
+            "ks_pvalue": 0.8284663345790042,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_3",
+            "psi": 0.011486769234453062,
+            "drift": false,
+            "ks_statistic": 0.006163614977273413,
+            "ks_pvalue": 0.9961159341249198,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_4",
+            "psi": 0.008224406252169978,
+            "drift": false,
+            "ks_statistic": 0.010362218033548198,
+            "ks_pvalue": 0.7335921070690703,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_5",
+            "psi": 0.00821051314317319,
+            "drift": false,
+            "ks_statistic": 0.012764064956332755,
+            "ks_pvalue": 0.47288869650323984,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_6",
+            "psi": 0.009244829457254664,
+            "drift": false,
+            "ks_statistic": 0.010828096366186535,
+            "ks_pvalue": 0.6823721603328554,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_1",
+            "psi": 0.009601985305145376,
+            "drift": false,
+            "ks_statistic": 0.014827632620924125,
+            "ks_pvalue": 0.29063654714958576,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_2",
+            "psi": 0.0162146070795579,
+            "drift": false,
+            "ks_statistic": 0.014267336305872014,
+            "ks_pvalue": 0.33457154547504664,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_3",
+            "psi": 0.0006528242725160666,
+            "drift": false,
+            "ks_statistic": 0.009598796158380107,
+            "ks_pvalue": 0.8131978697390634,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_4",
+            "psi": 0.014548626495282326,
+            "drift": false,
+            "ks_statistic": 0.009505484212367299,
+            "ks_pvalue": 0.8223418988735139,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_5",
+            "psi": 0.0059844392764953494,
+            "drift": false,
+            "ks_statistic": 0.011901702199896502,
+            "ks_pvalue": 0.5635991691643123,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_6",
+            "psi": 0.005145669710774407,
+            "drift": false,
+            "ks_statistic": 0.013114955004562945,
+            "ks_pvalue": 0.4380990261636347,
+            "ks_significant_bonferroni": false
+          }
+        ],
+        "drifted_features": [
+          "limit_bal",
+          "pay_0"
+        ],
+        "interpretation": "Alerta por feature via PSI; KS complementar. KS em variáveis discretas exige cautela. Nenhum teste prova causalidade."
+      },
+      "prediction_count": 5810,
+      "stages": [
+        {
+          "time_utc": "2026-10-28T18:08:29.413169+00:00",
+          "run_id": "20f862b7497f499386855565b1cc065d",
+          "batch_id": "drift_moderate",
+          "stage": "ingestion",
+          "status": "success",
+          "seconds": 0.0011555000000953441,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 409.99609375
+        },
+        {
+          "time_utc": "2026-10-28T18:08:29.432702+00:00",
+          "run_id": "20f862b7497f499386855565b1cc065d",
+          "batch_id": "drift_moderate",
+          "stage": "validation",
+          "status": "success",
+          "seconds": 0.009613299999728042,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 410.00390625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:29.451713+00:00",
+          "run_id": "20f862b7497f499386855565b1cc065d",
+          "batch_id": "drift_moderate",
+          "stage": "transformation",
+          "status": "success",
+          "seconds": 0.00992119999955321,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 410.6328125
+        },
+        {
+          "time_utc": "2026-10-28T18:08:29.462704+00:00",
+          "run_id": "20f862b7497f499386855565b1cc065d",
+          "batch_id": "drift_moderate",
+          "stage": "inference",
+          "status": "success",
+          "seconds": 0.0007177999996201834,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 410.62890625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:30.956483+00:00",
+          "run_id": "20f862b7497f499386855565b1cc065d",
+          "batch_id": "drift_moderate",
+          "stage": "drift",
+          "status": "success",
+          "seconds": 1.484368400000676,
+          "input_rows": 5810,
+          "cpu_seconds": 1.453125,
+          "rss_mb": 408.36328125
+        }
+      ]
+    },
+    {
+      "scenario": "drift_severe",
+      "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+      "received_rows": 5810,
+      "accepted_rows": 5810,
+      "rejected_rows": 0,
+      "alerts": 2,
+      "metadata": {
+        "kind": "covariate_shift",
+        "credit_factor": 2.5,
+        "status_increment": 3,
+        "target_note": "Sem alvo contrafactual observado; acurácia não avaliada."
+      },
+      "status": "success",
+      "drift": {
+        "reference_rows": 17429,
+        "current_rows": 5810,
+        "method": "Evidently PSI",
+        "threshold": 0.2,
+        "dataset_drift_share_threshold": 0.05263157894736842,
+        "ks_family_alpha": 0.05,
+        "ks_comparisons": 19,
+        "features": [
+          {
+            "feature": "limit_bal",
+            "psi": 2.6771189347009012,
+            "drift": true,
+            "ks_statistic": 0.4056752801555641,
+            "ks_pvalue": 0.0,
+            "ks_significant_bonferroni": true
+          },
+          {
+            "feature": "pay_0",
+            "psi": 9.258705388405168,
+            "drift": true,
+            "ks_statistic": 0.8084276616148783,
+            "ks_pvalue": 0.0,
+            "ks_significant_bonferroni": true
+          },
+          {
+            "feature": "pay_2",
+            "psi": 0.0025123740266736697,
+            "drift": false,
+            "ks_statistic": 0.008138363968731133,
+            "ks_pvalue": 0.9327909191681363,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_3",
+            "psi": 0.002221674130496438,
+            "drift": false,
+            "ks_statistic": 0.011148323530262738,
+            "ks_pvalue": 0.6467492751473892,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_4",
+            "psi": 0.0026403615093893535,
+            "drift": false,
+            "ks_statistic": 0.01097619661535082,
+            "ks_pvalue": 0.6659120283409256,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_5",
+            "psi": 0.0020924999649891214,
+            "drift": false,
+            "ks_statistic": 0.006534769192422463,
+            "ks_pvalue": 0.9917769974943101,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_6",
+            "psi": 0.001817450422643392,
+            "drift": false,
+            "ks_statistic": 0.007223089220895096,
+            "ks_pvalue": 0.9756801002166264,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_1",
+            "psi": 0.005525106823507991,
+            "drift": false,
+            "ks_statistic": 0.0063026003014541865,
+            "ks_pvalue": 0.9947720616817768,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_2",
+            "psi": 0.0047583986062478874,
+            "drift": false,
+            "ks_statistic": 0.009442045124507636,
+            "ks_pvalue": 0.8284663345790042,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_3",
+            "psi": 0.011486769234453062,
+            "drift": false,
+            "ks_statistic": 0.006163614977273413,
+            "ks_pvalue": 0.9961159341249198,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_4",
+            "psi": 0.008224406252169978,
+            "drift": false,
+            "ks_statistic": 0.010362218033548198,
+            "ks_pvalue": 0.7335921070690703,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_5",
+            "psi": 0.00821051314317319,
+            "drift": false,
+            "ks_statistic": 0.012764064956332755,
+            "ks_pvalue": 0.47288869650323984,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_6",
+            "psi": 0.009244829457254664,
+            "drift": false,
+            "ks_statistic": 0.010828096366186535,
+            "ks_pvalue": 0.6823721603328554,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_1",
+            "psi": 0.009601985305145376,
+            "drift": false,
+            "ks_statistic": 0.014827632620924125,
+            "ks_pvalue": 0.29063654714958576,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_2",
+            "psi": 0.0162146070795579,
+            "drift": false,
+            "ks_statistic": 0.014267336305872014,
+            "ks_pvalue": 0.33457154547504664,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_3",
+            "psi": 0.0006528242725160666,
+            "drift": false,
+            "ks_statistic": 0.009598796158380107,
+            "ks_pvalue": 0.8131978697390634,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_4",
+            "psi": 0.014548626495282326,
+            "drift": false,
+            "ks_statistic": 0.009505484212367299,
+            "ks_pvalue": 0.8223418988735139,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_5",
+            "psi": 0.0059844392764953494,
+            "drift": false,
+            "ks_statistic": 0.011901702199896502,
+            "ks_pvalue": 0.5635991691643123,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_6",
+            "psi": 0.005145669710774407,
+            "drift": false,
+            "ks_statistic": 0.013114955004562945,
+            "ks_pvalue": 0.4380990261636347,
+            "ks_significant_bonferroni": false
+          }
+        ],
+        "drifted_features": [
+          "limit_bal",
+          "pay_0"
+        ],
+        "interpretation": "Alerta por feature via PSI; KS complementar. KS em variáveis discretas exige cautela. Nenhum teste prova causalidade."
+      },
+      "prediction_count": 5810,
+      "stages": [
+        {
+          "time_utc": "2026-10-28T18:08:31.060270+00:00",
+          "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+          "batch_id": "drift_severe",
+          "stage": "ingestion",
+          "status": "success",
+          "seconds": 0.0007675000006202026,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 401.3828125
+        },
+        {
+          "time_utc": "2026-10-28T18:08:31.079249+00:00",
+          "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+          "batch_id": "drift_severe",
+          "stage": "validation",
+          "status": "success",
+          "seconds": 0.009750100000019302,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 401.5703125
+        },
+        {
+          "time_utc": "2026-10-28T18:08:31.100631+00:00",
+          "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+          "batch_id": "drift_severe",
+          "stage": "transformation",
+          "status": "success",
+          "seconds": 0.011217100000067148,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 407.21484375
+        },
+        {
+          "time_utc": "2026-10-28T18:08:31.110626+00:00",
+          "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+          "batch_id": "drift_severe",
+          "stage": "inference",
+          "status": "success",
+          "seconds": 0.000645299999632698,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 407.23046875
+        },
+        {
+          "time_utc": "2026-10-28T18:08:32.582647+00:00",
+          "run_id": "c7a6107e911e4525a8ace00ffd5df6ab",
+          "batch_id": "drift_severe",
+          "stage": "drift",
+          "status": "success",
+          "seconds": 1.4634773000007044,
+          "input_rows": 5810,
+          "cpu_seconds": 1.453125,
+          "rss_mb": 434.1796875
+        }
+      ]
+    },
+    {
+      "scenario": "concept_synthetic",
+      "run_id": "5471a717c2284228b744fa7a50a557c6",
+      "received_rows": 5810,
+      "accepted_rows": 5810,
+      "rejected_rows": 0,
+      "alerts": 1,
+      "metadata": {
+        "kind": "synthetic_conditional_target_shift",
+        "synthetic": true,
+        "flipped_labels": 1829,
+        "eligible_rows": 2276,
+        "probability": 0.8,
+        "bill_threshold_reference": 25111.0,
+        "mechanism": "Inverter rótulo com probabilidade q nos perfis pay_0<=0 e bill_amt_1 acima da mediana da referência. X idêntico ao controle."
+      },
+      "status": "success",
+      "drift": {
+        "reference_rows": 17429,
+        "current_rows": 5810,
+        "method": "Evidently PSI",
+        "threshold": 0.2,
+        "dataset_drift_share_threshold": 0.05263157894736842,
+        "ks_family_alpha": 0.05,
+        "ks_comparisons": 19,
+        "features": [
+          {
+            "feature": "limit_bal",
+            "psi": 0.007408997614078617,
+            "drift": false,
+            "ks_statistic": 0.0075689033520705,
+            "ks_pvalue": 0.9625863024470263,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_0",
+            "psi": 0.0008833696768103748,
+            "drift": false,
+            "ks_statistic": 0.004118583297724521,
+            "ks_pvalue": 0.9999993063367137,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_2",
+            "psi": 0.0025123740266736697,
+            "drift": false,
+            "ks_statistic": 0.008138363968731133,
+            "ks_pvalue": 0.9327909191681363,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_3",
+            "psi": 0.002221674130496438,
+            "drift": false,
+            "ks_statistic": 0.011148323530262738,
+            "ks_pvalue": 0.6467492751473892,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_4",
+            "psi": 0.0026403615093893535,
+            "drift": false,
+            "ks_statistic": 0.01097619661535082,
+            "ks_pvalue": 0.6659120283409256,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_5",
+            "psi": 0.0020924999649891214,
+            "drift": false,
+            "ks_statistic": 0.006534769192422463,
+            "ks_pvalue": 0.9917769974943101,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_6",
+            "psi": 0.001817450422643392,
+            "drift": false,
+            "ks_statistic": 0.007223089220895096,
+            "ks_pvalue": 0.9756801002166264,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_1",
+            "psi": 0.005525106823507991,
+            "drift": false,
+            "ks_statistic": 0.0063026003014541865,
+            "ks_pvalue": 0.9947720616817768,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_2",
+            "psi": 0.0047583986062478874,
+            "drift": false,
+            "ks_statistic": 0.009442045124507636,
+            "ks_pvalue": 0.8284663345790042,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_3",
+            "psi": 0.011486769234453062,
+            "drift": false,
+            "ks_statistic": 0.006163614977273413,
+            "ks_pvalue": 0.9961159341249198,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_4",
+            "psi": 0.008224406252169978,
+            "drift": false,
+            "ks_statistic": 0.010362218033548198,
+            "ks_pvalue": 0.7335921070690703,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_5",
+            "psi": 0.00821051314317319,
+            "drift": false,
+            "ks_statistic": 0.012764064956332755,
+            "ks_pvalue": 0.47288869650323984,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "bill_amt_6",
+            "psi": 0.009244829457254664,
+            "drift": false,
+            "ks_statistic": 0.010828096366186535,
+            "ks_pvalue": 0.6823721603328554,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_1",
+            "psi": 0.009601985305145376,
+            "drift": false,
+            "ks_statistic": 0.014827632620924125,
+            "ks_pvalue": 0.29063654714958576,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_2",
+            "psi": 0.0162146070795579,
+            "drift": false,
+            "ks_statistic": 0.014267336305872014,
+            "ks_pvalue": 0.33457154547504664,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_3",
+            "psi": 0.0006528242725160666,
+            "drift": false,
+            "ks_statistic": 0.009598796158380107,
+            "ks_pvalue": 0.8131978697390634,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_4",
+            "psi": 0.014548626495282326,
+            "drift": false,
+            "ks_statistic": 0.009505484212367299,
+            "ks_pvalue": 0.8223418988735139,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_5",
+            "psi": 0.0059844392764953494,
+            "drift": false,
+            "ks_statistic": 0.011901702199896502,
+            "ks_pvalue": 0.5635991691643123,
+            "ks_significant_bonferroni": false
+          },
+          {
+            "feature": "pay_amt_6",
+            "psi": 0.005145669710774407,
+            "drift": false,
+            "ks_statistic": 0.013114955004562945,
+            "ks_pvalue": 0.4380990261636347,
+            "ks_significant_bonferroni": false
+          }
+        ],
+        "drifted_features": [],
+        "interpretation": "Alerta por feature via PSI; KS complementar. KS em variáveis discretas exige cautela. Nenhum teste prova causalidade."
+      },
+      "performance": {
+        "rows": 5810,
+        "positive_rate": 0.45886402753872635,
+        "roc_auc": 0.49116751993341845,
+        "pr_auc": 0.5077916706309173,
+        "precision": 0.664714494875549,
+        "recall": 0.17029257314328583,
+        "brier": 0.32287180715896097,
+        "confusion_matrix": [
+          [
+            2915,
+            229
+          ],
+          [
+            2212,
+            454
+          ]
+        ]
+      },
+      "auc_drop_vs_control": 0.280141030944677,
+      "performance_alert": true,
+      "prediction_count": 5810,
+      "stages": [
+        {
+          "time_utc": "2026-10-28T18:08:32.686635+00:00",
+          "run_id": "5471a717c2284228b744fa7a50a557c6",
+          "batch_id": "concept_synthetic",
+          "stage": "ingestion",
+          "status": "success",
+          "seconds": 0.0002523000002838671,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 434.4375
+        },
+        {
+          "time_utc": "2026-10-28T18:08:32.707640+00:00",
+          "run_id": "5471a717c2284228b744fa7a50a557c6",
+          "batch_id": "concept_synthetic",
+          "stage": "validation",
+          "status": "success",
+          "seconds": 0.009524099999907776,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 434.48046875
+        },
+        {
+          "time_utc": "2026-10-28T18:08:32.728178+00:00",
+          "run_id": "5471a717c2284228b744fa7a50a557c6",
+          "batch_id": "concept_synthetic",
+          "stage": "transformation",
+          "status": "success",
+          "seconds": 0.010109599999850616,
+          "input_rows": 5810,
+          "cpu_seconds": 0.015625,
+          "rss_mb": 435.41015625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:32.738178+00:00",
+          "run_id": "5471a717c2284228b744fa7a50a557c6",
+          "batch_id": "concept_synthetic",
+          "stage": "inference",
+          "status": "success",
+          "seconds": 0.0007210999992821598,
+          "input_rows": 5810,
+          "cpu_seconds": 0.0,
+          "rss_mb": 435.4140625
+        },
+        {
+          "time_utc": "2026-10-28T18:08:34.512642+00:00",
+          "run_id": "5471a717c2284228b744fa7a50a557c6",
+          "batch_id": "concept_synthetic",
+          "stage": "drift",
+          "status": "success",
+          "seconds": 1.7645322999997006,
+          "input_rows": 5810,
+          "cpu_seconds": 1.828125,
+          "rss_mb": 425.359375
+        }
+      ]
+    }
+  ],
+  "preparation_stages": [
+    {
+      "time_utc": "2026-10-28T18:08:23.975809+00:00",
+      "run_id": "d3d61cacb0dc42c7958fdce2695e6745",
+      "batch_id": "preparation",
+      "stage": "audit",
+      "status": "success",
+      "seconds": 1.9208834000000934,
+      "input_rows": 0,
+      "cpu_seconds": 1.84375,
+      "rss_mb": 418.01953125
+    },
+    {
+      "time_utc": "2026-10-28T18:08:24.676617+00:00",
+      "run_id": "d3d61cacb0dc42c7958fdce2695e6745",
+      "batch_id": "preparation",
+      "stage": "training",
+      "status": "success",
+      "seconds": 0.68221210000047,
+      "input_rows": 17429,
+      "cpu_seconds": 0.734375,
+      "rss_mb": 397.9921875
+    }
+  ]
+}

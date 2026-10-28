@@ -29,12 +29,13 @@ Fontes:
 
 ## Slide 4 — 35 s
 
-Neste teste, o lote violou o contrato de dados. As regras incluem identificador único e positivo, faixa de idade válida e limite de crédito maior que zero, além de tipos, nulidade e outras restrições. O pipeline rejeitou o lote inteiro, com 5.810 registros, antes de gerar qualquer predição. O print mostra a execução invalid no MLflow com status Failed. Esse status é esperado: ele registra a rejeição controlada. Assim, uma entrada inválida fica rastreável e não avança silenciosamente pelo fluxo.
+Aqui está o fluxo funcionando com o lote válido. O pipeline aceitou os 5.810 registros e concluiu todas as predições. O print real do MLflow mostra o cenário control com status Finished, sucesso na inferência e 5.810 entradas. Não houve rejeições nem alertas de drift, e a ROC-AUC foi 0,771. Em um teste separado, inseri de propósito idade de doze anos, limite negativo e ID duplicado. Somente essa cópia inválida foi bloqueada antes da predição. Assim, comprovei tanto o funcionamento normal quanto a proteção contra dados incorretos.
 
 Fontes:
-- https://github.com/ygormartinelli/tech-challenge-fase-4/blob/main/reports/evidence/summary.json
-- https://github.com/ygormartinelli/tech-challenge-fase-4/blob/main/reports/evidence/mlflow-rejected.jpg
-- Print da execução local a060aa620fa2, run e7cc6483b67c418c9fc37aeef955171f. A reprodução independente documenta o mesmo comportamento com outros IDs.
+- https://github.com/ygormartinelli/tech-challenge-fase-4/blob/main/reports/evidence/confirmation-54c176366b40.json
+- https://github.com/ygormartinelli/tech-challenge-fase-4/blob/main/reports/evidence/mlflow-control.jpg
+- Execução 54c176366b40, commit c1c0393e0a888ce299d8100f4c885cddb1807867, árvore limpa. Run control: 01844b2da8dc43c9b77eae15b04fb32c.
+- O print está recortado apenas para ampliar cabeçalho, métricas de inferência e status. A captura original permanece no repositório.
 
 ## Slide 5 — 40 s
 
