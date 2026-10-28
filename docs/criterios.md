@@ -1,6 +1,6 @@
 # Rubrica e evidências de aceitação
 
-Fonte: documento “MLET - Tech Challenge - Fase 4.md”, lido integralmente em 28/10/2026. Todos os itens abaixo estão planejados, ainda sem evidência de execução.
+Fonte: documento “MLET - Tech Challenge - Fase 4.md”, lido integralmente em 28/10/2026. Etapas técnicas executadas; evidências em [validacao.md](validacao.md). Vídeo pendente.
 
 | Critério | Peso | Atividades | Evidência esperada |
 | --- | --- | --- | --- |
@@ -12,4 +12,4 @@ Fonte: documento “MLET - Tech Challenge - Fase 4.md”, lido integralmente em 
 
 Requisitos transversais: histórico semântico, classificação financeira binária com ≥5.000 amostras, separação entre referência e análise, reprodução em ambiente limpo (T10). O contexto também exige abordagem de concept drift, tratada na T07 com mecanismo controlado e limitações explícitas.
 
-Para cada evidência, registrar comando, commit, configuração/seed, resultado e localização do artefato. Não confundir arquivo presente com serviço executado ou teste aprovado.
+Comandos, commit, configuração/seed, resultados, capturas e limitações estão em [validacao.md](validacao.md), [summary.json](../reports/evidence/summary.json), [audit.json](../reports/evidence/audit.json) e [training.json](../reports/evidence/training.json). Governança e análise causal estão consolidadas no README. T11 permanece aberta até gravação, link e revisão final.

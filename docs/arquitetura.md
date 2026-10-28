@@ -1,8 +1,8 @@
-# Arquitetura proposta
+# Arquitetura e decisões
 
 ## Escopo
 
-Pipeline local por lotes, reproduzível e suficiente para demonstrar confiabilidade de um modelo simples. Decisões abaixo são propostas para implementação após a auditoria dos dados.
+Pipeline local por lotes implementado e executado em 28/10/2026. As decisões iniciais abaixo foram adotadas após auditoria; o README e `docs/validacao.md` registram os resultados e limites da verificação.
 
 | Componente | Proposta | Motivo e condição |
 | --- | --- | --- |
